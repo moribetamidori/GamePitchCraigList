@@ -5,6 +5,7 @@ import { collection, orderBy, onSnapshot, query} from 'firebase/firestore';
 import PitchItem from "./PitchItem";
 
 
+
 export default function GamePitchList(props: any){
 
     const [pitchItems, setPitchItems] =  useState<any[]>([]);
@@ -21,7 +22,7 @@ export default function GamePitchList(props: any){
     }, [])
     return (
         <div>
-            {pitchItems.map(pitchItem => <PitchItem 
+            {pitchItems.map(pitchItem => <div key={pitchItem.id}><PitchItem 
                 id={pitchItem.id}
                 name={pitchItem.name}
                 description={pitchItem.description}
@@ -34,7 +35,7 @@ export default function GamePitchList(props: any){
                 goal={pitchItem.goal}
                 intention={pitchItem.intention}
                 contact={pitchItem.contact}                
-                />)}
+                /></div>)}
         </div>
     )
     //timestamp 
